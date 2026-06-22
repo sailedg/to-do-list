@@ -1,0 +1,287 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  background-image: url('images/bg.png'),
+    linear-gradient(203deg, rgb(202 202 202) 0%, rgb(194 194 194) 51%, rgb(127 127 127) 100%);
+  background-size: cover, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+h1 {
+  color: #fff;
+}
+
+h1 .counterCompleted {
+  color: #6f9a6f;
+}
+
+h1 .counterTotal {
+  color: #d78585;
+}
+
+main {
+  display: grid;
+  grid-template-rows: 6fr;
+  grid-template-columns: 500px 1fr;
+  max-width: 960px;
+  gap: 2rem;
+  color: #000000;
+  margin: 0 1rem;
+  margin-bottom: 5rem;
+}
+
+main>div {
+  background: #ffffff;
+  box-shadow: #00000047 0 0 13px 1px;
+  border-radius: 12px;
+  padding: 2rem;
+}
+
+main .presentation {
+  z-index: 1;
+  background-image:
+    url('images/bg-card.png'),
+    linear-gradient(180deg, rgba(227, 191, 181, 1) 0%, rgba(242, 136, 107, 1) 100%);
+  background-size:
+    cover,
+    cover;
+  background-position:
+    center 86px,
+    center;
+  background-repeat:
+    no-repeat,
+    no-repeat;
+  color: #424242;
+}
+
+main .content {
+  padding: 2rem 2rem 2rem 5rem;
+  margin-left: -5rem;
+}
+
+.formBox {
+  position: relative;
+}
+
+.formBox .icon-search {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+input {
+  border: none;
+  width: 100%;
+  padding: 1rem 2.5rem 1rem 1rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  background: #ffe1d8;
+}
+
+input::placeholder {
+  color: #424242;
+}
+
+input:focus {
+  outline: none;
+}
+
+.filterContainer {
+  margin-bottom: 2rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.filterContainer .activeBtn {
+  background: #424242;
+}
+
+.filterBtn {
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  background: #959595;
+  color: #fff;
+  border-radius: 4px;
+}
+
+ul {
+  margin: auto;
+  padding: 0rem;
+  border-radius: 4px;
+  background: #f3f3f3c7;
+  min-height: 400px;
+  max-width: 370px;
+  box-shadow: #00000059 1px 1px 6px 0px;
+  color: #000000;
+  overflow: hidden;
+}
+
+ul li {
+  display: flex;
+  align-items: center;
+}
+
+.filterContainer span svg {
+  fill: #8d8686;
+}
+
+ul li:last-child {
+  border-bottom: none;
+}
+
+ul li:nth-child(even) {
+  background-color: #ebebeb;
+}
+
+ul li p {
+  margin: 0;
+  margin-right: auto;
+  padding: 2rem 0;
+}
+
+.createBtn {
+  border-radius: 50%;
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  width: 5rem;
+  height: 5rem;
+  font-size: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform .3s ease;
+  cursor: pointer;
+  border: none;
+  background: #3ce8f0;
+  color: #fff;
+}
+
+.createBtn:hover {
+  transform: scale(1.2);
+}
+
+.checkIcon svg,
+.deleteIcon svg {
+  padding: 0.4rem;
+  fill: #ffffff;
+  height: 32px;
+  border-radius: 50%;
+  width: 32px;
+}
+
+.checkIcon svg {
+  background: #6f9a6f;
+  left: 12px;
+  transform: translateX(-200%);
+  transition: transform .3s;
+}
+
+.checkIcon:hover svg {
+  transform: translateX(0);
+}
+
+.deleteIcon svg {
+  background: #d78585;
+}
+
+.checkIcon,
+.deleteIcon {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  cursor: pointer;
+  position: relative;
+}
+
+.checkIcon i {
+  transition: all .3s ease;
+}
+
+.checkIcon i {
+  height: 100%;
+  width: 100%;
+  background: #6f9a6f;
+  border-radius: 50%;
+  position: absolute;
+  left: -70%;
+}
+
+.checkIcon:hover .circle-check {
+  left: -100%;
+}
+
+.deleteIcon svg {
+  background: #d78585;
+  left: 12px;
+  transform: translateX(140%);
+  transition: all .3s;
+}
+
+.deleteIcon i {
+  height: 100%;
+  width: 100%;
+  background: #d78585;
+  border-radius: 50%;
+  position: absolute;
+  left: -70%;
+  transform: translateX(140%);
+  transition: all .3s;
+  opacity: 1;
+}
+
+.deleteIcon:hover svg {
+  transform: translateX(0);
+}
+
+.deleteIcon:hover .circle-delete {
+  transform: translateX(200%);
+}
+
+ul .taks-completed p {
+  text-decoration: line-through;
+  color: #aaaaaa;
+}
+
+
+ul .taks-completed .circle-check {
+  left: -100%;
+}
+
+ul .taks-completed .checkIcon svg {
+  transform: translateX(0);
+  box-shadow: inset 0 0 0 3px #ffffff;
+  border: 2px solid #6f9a6f;
+}
+
+ul .taks-completed .deleteIcon {
+  opacity: 0;
+  pointer-events: none;
+}
