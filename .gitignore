@@ -4,6 +4,9 @@ node_modules
 # Ignora lock files
 package-lock.json
 
+#producion
+build
+
 # Opcional: Ignora la carpeta public (solo si ya la subiste a GitHub)
 # public
 
@@ -13,3 +16,4 @@ package-lock.json
 # Opcional: Ignora archivos de entorno si los creas
 # .env
 # .env.local
+
