@@ -1,0 +1,15 @@
+# Ignora la carpeta node_modules
+node_modules
+
+# Ignora lock files
+package-lock.json
+
+# Opcional: Ignora la carpeta public (solo si ya la subiste a GitHub)
+# public
+
+# Opcional: Ignora la carpeta src (solo si ya la subiste a GitHub)
+# src
+
+# Opcional: Ignora archivos de entorno si los creas
+# .env
+# .env.local
