@@ -1,0 +1,82 @@
+.TodosError-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  animation: errorFadeIn 0.4s ease-out;
+}
+
+@keyframes errorFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.TodosError-icon {
+  background: #fce8e8;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+  animation: errorPulse 2s ease-in-out infinite;
+}
+
+@keyframes errorPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(215, 133, 133, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(215, 133, 133, 0);
+  }
+}
+
+.TodosError-icon svg {
+  fill: #d78585;
+}
+
+.TodosError-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #c0392b;
+}
+
+.TodosError-message {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #777;
+  line-height: 1.6;
+}
+
+.TodosError-retryBtn {
+  margin-top: 0.5rem;
+  padding: 0.6rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  background: #d78585;
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.TodosError-retryBtn:hover {
+  background: #c0392b;
+  transform: scale(1.05);
+}
+
+.TodosError-retryBtn:active {
+  transform: scale(0.97);
+}

@@ -10,7 +10,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
-  background-image: url('images/bg.png'),
+  background-image: url('assets/images/bg.png'),
     linear-gradient(203deg, rgb(202 202 202) 0%, rgb(194 194 194) 51%, rgb(127 127 127) 100%);
   background-size: cover, cover;
   background-position: center, center;
@@ -57,12 +57,14 @@ main>div {
   box-shadow: #00000047 0 0 13px 1px;
   border-radius: 12px;
   padding: 2rem;
+  min-width: 0;
+  overflow: hidden;
 }
 
 main .presentation {
   z-index: 1;
   background-image:
-    url('images/bg-card.png'),
+    url('assets/images/bg-card.png'),
     linear-gradient(180deg, rgba(227, 191, 181, 1) 0%, rgba(242, 136, 107, 1) 100%);
   background-size:
     cover,
@@ -135,7 +137,7 @@ ul {
   border-radius: 4px;
   background: #f3f3f3c7;
   min-height: 400px;
-  max-width: 370px;
+  max-width: 348px;
   box-shadow: #00000059 1px 1px 6px 0px;
   color: #000000;
   overflow: hidden;
@@ -180,6 +182,7 @@ ul li p {
   border: none;
   background: #3ce8f0;
   color: #fff;
+  z-index: 10;
 }
 
 .createBtn:hover {
@@ -193,6 +196,12 @@ ul li p {
   height: 32px;
   border-radius: 50%;
   width: 32px;
+  pointer-events: none;
+}
+
+.checkIcon svg path,
+.deleteIcon svg path {
+  pointer-events: none;
 }
 
 .checkIcon svg {
@@ -281,7 +290,14 @@ ul .taks-completed .checkIcon svg {
   border: 2px solid #6f9a6f;
 }
 
+ul .taks-completed .circle-delete {
+  transform: translateX(200%);
+}
+
 ul .taks-completed .deleteIcon {
-  opacity: 0;
   pointer-events: none;
+}
+
+ul .taks-completed .deleteIcon svg {
+  transform: translateX(140%);
 }
