@@ -83,6 +83,11 @@ main .content {
   margin-left: -5rem;
 }
 
+/* Hook oculto en escritorio; solo aparece en móvil */
+.cardHook {
+  display: none;
+}
+
 .formBox {
   position: relative;
 }
@@ -137,10 +142,36 @@ ul {
   border-radius: 4px;
   background: #f3f3f3c7;
   min-height: 400px;
+  max-height: 420px;
   max-width: 348px;
   box-shadow: #00000059 1px 1px 6px 0px;
   color: #000000;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: #f2886b transparent;
+}
+
+ul::-webkit-scrollbar {
+  width: 10px;
+}
+
+ul::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 4px 0;
+}
+
+ul::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(227, 191, 181, 1) 0%, rgba(242, 136, 107, 1) 100%);
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  transition: background 0.2s ease;
+}
+
+ul::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(242, 136, 107, 1) 0%, rgba(213, 106, 77, 1) 100%);
+  background-clip: padding-box;
 }
 
 ul li {
@@ -300,4 +331,93 @@ ul .taks-completed .deleteIcon {
 
 ul .taks-completed .deleteIcon svg {
   transform: translateX(140%);
+}
+
+/* ===== Móvil: libro que se abre en 3D ===== */
+@media (max-width: 768px) {
+  main.book {
+    display: block;
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 1rem 5rem;
+    perspective: 1600px;
+  }
+
+  main.book > div {
+    margin: 0;
+    width: 100%;
+  }
+
+  /* Carta con las listas: queda debajo, es la "hoja" descubierta */
+  main.book .content {
+    position: relative;
+    z-index: 1;
+    padding: 2rem;
+    margin-left: 0;
+  }
+
+  /* Portada: encima, con bisagra en el borde izquierdo */
+  main.book .presentation {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    transform-origin: left center;
+    transform: rotateY(0deg);
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transition: transform 0.9s cubic-bezier(0.4, 0.1, 0.2, 1),
+      box-shadow 0.9s ease;
+    box-shadow: 4px 0 18px 1px #00000047;
+  }
+
+  /* Al abrir: la portada gira como una hoja y descubre las listas */
+  main.book--open .presentation {
+    transform: rotateY(-168deg);
+    box-shadow: 0 0 0 0 transparent;
+  }
+
+  /* Ganchito en el borde libre (derecha) — no gira con la portada */
+  .cardHook {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    right: -16px;
+    transform: translateY(-50%);
+    z-index: 3;
+    width: 34px;
+    height: 56px;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    border-radius: 0 10px 10px 0;
+    background: linear-gradient(180deg, rgba(227, 191, 181, 1) 0%, rgba(242, 136, 107, 1) 100%);
+    box-shadow: 2px 2px 6px #00000047;
+    transition: right 0.4s ease, background 0.3s ease;
+  }
+
+  main.book--open .cardHook {
+    right: -16px;
+    background: linear-gradient(180deg, rgba(242, 136, 107, 1) 0%, rgba(213, 106, 77, 1) 100%);
+  }
+
+  .cardHook-arrow {
+    width: 10px;
+    height: 10px;
+    border-top: 3px solid #fff;
+    border-right: 3px solid #fff;
+    transform: rotate(45deg);
+    transition: transform 0.4s ease;
+  }
+
+  /* Flecha apunta hacia dentro cuando está cerrado (abrir),
+     y hacia fuera cuando está abierto (cerrar) */
+  main.book--open .cardHook-arrow {
+    transform: rotate(-135deg);
+  }
 }

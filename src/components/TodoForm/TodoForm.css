@@ -1,0 +1,76 @@
+#modal form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+#modal form label {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #444;
+}
+
+#modal form textarea {
+    width: 100%;
+    min-height: 120px;
+    box-sizing: border-box;
+    resize: vertical;
+    padding: 0.75rem 0.85rem;
+    font-family: inherit;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #333;
+    background: #fafafa;
+    border: 2px solid #eaeaea;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+#modal form textarea::placeholder {
+    color: #bbb;
+}
+
+#modal form textarea:focus {
+    background: #fff;
+    border-color: #f2886b;
+    box-shadow: 0 0 0 3px rgba(242, 136, 107, 0.18);
+}
+
+.TodoForm-buttonContainer {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: flex-end;
+}
+
+.TodoForm-button {
+    padding: 0.55rem 1.1rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.1s ease, opacity 0.2s ease, background 0.2s ease;
+}
+
+.TodoForm-button:active {
+    transform: scale(0.96);
+}
+
+.TodoForm-button--cancel {
+    background: #f0f0f0;
+    color: #777;
+}
+
+.TodoForm-button--cancel:hover {
+    background: #e6e6e6;
+}
+
+.TodoForm-button--add {
+    background: #f2886b;
+    color: #fff;
+}
+
+.TodoForm-button--add:hover {
+    background: #e5764f;
+}
