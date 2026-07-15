@@ -12,15 +12,22 @@ function TodoProvider({ children }) {
     } = useLocalStorage('TODOS_V1', []);
     const [searchValue, setSearchValue] = React.useState('');
     const [openModal, setOpenModal] = React.useState(false);
+    const [filter, setFilter] = React.useState('all');
 
     const comepletedTodos = todos.filter(todo => !!todo.completed).length;
     const totalTodos = todos.length;
 
-    const searchedTodos = todos.filter((todo) => {
-        const todoText = todo.text.toLocaleLowerCase();
-        const searchText = searchValue.toLocaleLowerCase();
-        return todoText.includes(searchText);
-    })
+    const searchedTodos = todos
+        .filter((todo) => {
+            if (filter === 'pending') return !todo.completed;
+            if (filter === 'completed') return !!todo.completed;
+            return true;
+        })
+        .filter((todo) => {
+            const todoText = todo.text.toLocaleLowerCase();
+            const searchText = searchValue.toLocaleLowerCase();
+            return todoText.includes(searchText);
+        })
 
     const addTodo = (text) => {
         const newTodos = [...todos];
@@ -60,6 +67,8 @@ function TodoProvider({ children }) {
                 searchValue,
                 setSearchValue,
                 searchedTodos,
+                filter,
+                setFilter,
                 addTodo,
                 completeTodo,
                 deleteTodo,
